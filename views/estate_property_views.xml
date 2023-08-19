@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Action for the estate property model -->
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Estates</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+          	Define a new estate
+          </p><p>
+            Use lost reasons to explain why an opportunity is lost.
+          </p><p>
+            Some examples of lost reasons: "We don't have people/skill", "Price too high"
+          </p>
+        </field>
+    </record>
+
+    <record id="estate_property_view_tree" model="ir.ui.view">
+      <field name="name">estate.property.tree</field>
+      <field name="model">estate.property</field>
+      <field name="arch" type="xml">
+          <tree string="Estates">
+            <field name="name"/>
+            <field name="description"/>
+            <field name="estate_type"/>
+            <field name="postcode"/>
+            <field name="date_availability"/>
+            <field name="expected_price"/>
+            <field name="selling_price"/>
+            <field name="bedrooms"/>
+            <field name="living_area"/>
+            <field name="facades"/>
+            <field name="garage"/>
+            <field name="garden"/>
+            <field name="garden_area"/>
+            <field name="garden_orientation"/>
+            <field name="sales_person"/>
+            <field name="buyer"/>
+
+          </tree>
+      </field>
+    </record>
+
+
+    <!--
+    <record id="view_form_add" model="ir.ui.view">
+        <field name="name">estate.property.form.add</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+          <form string="Estate adding form">
+            <field name="postcode"/>
+            <field name="date_availability" string="Available From"/>
+          </form>
+        </field>
+    </record>
+
+    <record id="action_add" model="ir.actions.act_window">
+        <field name="name">Add Record</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="estate.view_form_add"/>
+    </record>
+
+
+
+    <record id="view_form_edit" model="ir.ui.view">
+        <field name="name">estate.property.form.edit</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+          <form string="Estate editing form">
+            <field name="name" string="Name"/>
+            <field name="description" string="Description"/>
+          </form>
+        </field>
+    </record>
+
+    <record id="action_edit" model="ir.actions.act_window">
+        <field name="name">Edit Record</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="estate.view_form_edit"/>
+    </record> -->
+
+    <record id="estate_property_view_form" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate form">
+              <sheet>
+                
+                <header>
+                  <h1>Create/Edit House</h1>
+                </header>
+
+                <separator/>
+
+                <group>
+                  <!--
+                  <group>
+                    <div>
+                      <field name="tags" widget="many2many_tags" class="o_tags_input"/>
+                    </div>
+                    <field name="tags" widget="many2many_tags"/>
+                  </group>-->
+
+                  <group>
+                    <field name="tags" widget="many2many_tags"/>
+                    <field name="estate_type"/>
+                    <field name="postcode"/>
+                  </group>
+
+                  <group col="2">
+                    <field name="date_availability" string="Available From"/>
+                    <field name="expected_price"/>
+                    <field name="selling_price"/>
+                  </group>
+                </group>
+
+                <notebook>                  
+                  <page string="Description">
+                      <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="bedrooms"/>
+                        <field name="living_area"/>
+                        <field name="facades"/>
+                        <field name="garage"/>
+                        <field name="garden"/>
+                        <field name="garden_area"/>
+                        <field name="garden_orientation"/>
+                        <field name="active"/>
+                      </group>
+                  </page>
+
+                  <page string="Other Infos">
+                      <group>
+                        <field name="sales_person"/>
+                        <field name="buyer"/>
+                      </group>
+                  </page>
+
+                  <page string="Other Infos">
+                    <group>
+                      <field name="offers"/>
+                    </group>
+                  </page>
+                </notebook>
+              </sheet>
+          </form>
+        </field>
+    </record>
+
+    <!-- The search view -->
+    <record id="estate_property_search" model="ir.ui.view">
+      <field name="name">estate.property.search</field>
+      <field name="model">estate.property</field>
+      <field name="arch" type="xml">
+          <search string="Estate Search">
+              <field name="name"/>
+              <field name="postcode"/>
+              <field name="expected_price"/>
+              <field name="bedrooms"/>
+              <field name="living_area"/>
+              <field name="facades"/>
+              <separator/>
+              <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+              <filter string="In North" name="north" domain="[('garden_orientation', '=', 'north')]"/>
+              
+              <group expand="1" string="Group By">
+                <filter string="Postcode" name="group_by_postcode" context="{'group_by':'postcode'}"/>
+              </group>
+          </search>
+      </field>
+    </record>
+
+</odoo>
