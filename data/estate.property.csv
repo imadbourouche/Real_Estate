@@ -1,0 +1,4 @@
+name,active,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation
+Property 1,1,Description 1,12345,2023-07-01,250000,300000,3,150,2,1,0,0,North
+Property 2,1,Description 2,54321,2023-08-01,350000,400000,4,200,3,0,1,50,East
+Property 3,1,Description 3,67890,2023-09-01,450000,500000,5,250,4,1,1,100,West
