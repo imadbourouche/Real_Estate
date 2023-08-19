@@ -22,5 +22,8 @@ class EstateProperty(models.Model):
     garage = fields.Boolean(string='Garage')
     garden = fields.Boolean(string='Garden')
     garden_area = fields.Integer(string='Garden Area')
-    garden_orientation = fields.Selection([('north', 'North'), ('south', 'South'), (
-        'east', 'East'), ('west', 'West')], string='Garden Orientation')
+    garden_orientation = fields.Selection([('north', 'North'), ('south', 'South'), ('east', 'East'), ('west', 'West')], string='Garden Orientation')
+    sales_person = fields.Many2one('res.users', string='Salesperson', default=lambda self: self.env.user)
+    buyer = fields.Many2one('res.partner', string='Buyer', copy=False)
+    tags = fields.Many2many("estate.property.tag", string="Tags")
+    offers = fields.One2many("estate.property.offer","estate_property", string="Offers")
