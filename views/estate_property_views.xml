@@ -8,7 +8,7 @@
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
-          	Define a new estate
+            Define a new estate
           </p><p>
             Use lost reasons to explain why an opportunity is lost.
           </p><p>
@@ -30,12 +30,13 @@
             <field name="expected_price"/>
             <field name="selling_price"/>
             <field name="bedrooms"/>
-            <field name="living_area"/>
             <field name="facades"/>
             <field name="garage"/>
+            <field name="living_area"/>
             <field name="garden"/>
             <field name="garden_area"/>
             <field name="garden_orientation"/>
+            <field name="total_area"/>
             <field name="sales_person"/>
             <field name="buyer"/>
 
@@ -97,13 +98,6 @@
                 <separator/>
 
                 <group>
-                  <!--
-                  <group>
-                    <div>
-                      <field name="tags" widget="many2many_tags" class="o_tags_input"/>
-                    </div>
-                    <field name="tags" widget="many2many_tags"/>
-                  </group>-->
 
                   <group>
                     <field name="tags" widget="many2many_tags"/>
@@ -115,7 +109,9 @@
                     <field name="date_availability" string="Available From"/>
                     <field name="expected_price"/>
                     <field name="selling_price"/>
+                    <field name="best_price"/>
                   </group>
+
                 </group>
 
                 <notebook>                  
@@ -130,6 +126,7 @@
                         <field name="garden"/>
                         <field name="garden_area"/>
                         <field name="garden_orientation"/>
+                        <field name="total_area"/>
                         <field name="active"/>
                       </group>
                   </page>
@@ -141,9 +138,9 @@
                       </group>
                   </page>
 
-                  <page string="Other Infos">
+                  <page string="Offers">
                     <group>
-                      <field name="offers"/>
+                      <field name="offers" string=""/>
                     </group>
                   </page>
                 </notebook>
