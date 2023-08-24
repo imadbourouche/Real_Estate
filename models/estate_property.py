@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import api, fields, models, _
 from datetime import date, timedelta
 
 default_availability_date = (date.today() + timedelta(days=90)).strftime("%Y-%m-%d")
@@ -62,3 +62,18 @@ class EstateProperty(models.Model):
         if self.garden :
             self.garden_area = 10
             self.garden_orientation = 'north'
+
+    # buttons
+
+    state = fields.Selection([('active', 'Active'),('canceled', 'Canceled'),('sold', 'Sold')], string='Status', default='active')
+
+    
+    def action_cancel_property(self):
+        for property in self:
+            if property.state == 'active' and not property.buyer:
+                property.state = 'canceled'
+
+    def action_mark_as_sold(self):
+        for property in self:
+            if property.state == 'active' and property.buyer:
+                property.state = 'sold'

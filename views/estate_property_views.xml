@@ -92,14 +92,20 @@
               <sheet>
                 
                 <header>
-                  <h1>Create/Edit House</h1>
+
+                    <h1>Create/Edit House</h1>
                 </header>
 
                 <separator/>
 
+                <button name="action_cancel_property" string="Cancel" type="object" states="active" class="oe_highlight"/>
+                <button name="action_mark_as_sold" string="Sold" states="active" class="oe_highlight"/>
+
                 <group>
 
                   <group>
+                    <field name="state"/>
+
                     <field name="tags" widget="many2many_tags"/>
                     <field name="estate_type"/>
                     <field name="postcode"/>

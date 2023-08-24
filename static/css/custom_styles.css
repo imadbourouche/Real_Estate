@@ -1,0 +1,9 @@
+.header-with-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Adjust alignment if needed */
+}
+
+.header-with-buttons h1 {
+    margin-bottom: 10px; /* Adjust the value for the desired spacing */
+}
