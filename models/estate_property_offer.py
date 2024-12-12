@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 
 
 class EstatePropertyOffer(models.Model):
+    # this is just test
     _name="estate.property.offer"
     _description="Real estate Offers"
     price = fields.Float(string="Price")
