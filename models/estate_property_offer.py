@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 
 class EstatePropertyOffer(models.Model):
     # this is just test
+    # this is test 2
     _name="estate.property.offer"
     _description="Real estate Offers"
     price = fields.Float(string="Price")
